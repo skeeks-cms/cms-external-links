@@ -8,6 +8,7 @@
 namespace skeeks\cms\externalLinks;
 use skeeks\cms\externalLinks\CmsSettingsExternalLinksComponent;
 use skeeks\yii2\externalLinks\ExternalLinksComponent;
+use yii\base\Event;
 use yii\web\Application;
 
 /**
@@ -36,6 +37,18 @@ class CmsExternalLinksComponent extends ExternalLinksComponent
             {
                 $this->{$attribute} = $this->settings->{$attribute};
             }
+        }
+
+        $this->on(self::EVENT_BEFORE_PROCESSING, [$this, 'beforeCallback']);
+    }
+
+    public function beforeCallback(Event $e)
+    {
+        $component = $e->sender;
+
+        if (\Yii::$app->cms->moduleAdmin->requestIsAdmin())
+        {
+            $component->enabled = false;
         }
     }
 }
