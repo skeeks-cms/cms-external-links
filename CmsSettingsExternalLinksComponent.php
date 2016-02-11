@@ -5,7 +5,7 @@
  * @copyright 2010 SkeekS (СкикС)
  * @date 11.02.2016
  */
-namespace skeeks\cms\assetsAuto;
+namespace skeeks\cms\externalLinks;
 
 use yii\helpers\ArrayHelper;
 
@@ -18,13 +18,13 @@ class CmsSettingsExternalLinksComponent extends \skeeks\cms\base\Component
     /**
      * @var bool
      */
-    public $enabled = true;
+    public $enabled = false;
 
     /**
      * Do not change the links in which there are domain names
      * @var string
      */
-    public $noReplaceLinksOnDomainsString = "";
+    public $noReplaceLinksOnDomainsString = "skeeks.com,www.skeeks.com,cms.skeeks.com";
 
     /**
      * @var bool Do not change absolute references to the domain name obtained from the information \Yii::$app->request->hostInfo
@@ -67,6 +67,7 @@ class CmsSettingsExternalLinksComponent extends \skeeks\cms\base\Component
             [['noReplaceLocalDomain'], 'boolean'],
             [['enabledB64Encode'], 'boolean'],
             [['noReplaceLinksOnDomainsString'], 'string'],
+            [['noReplaceLinksOnDomains'], 'safe'],
         ]);
     }
 
@@ -77,6 +78,22 @@ class CmsSettingsExternalLinksComponent extends \skeeks\cms\base\Component
             'noReplaceLocalDomain'                      => 'Не менять абсолютные локальные ссылки',
             'enabledB64Encode'                          => 'Преобразовывать в b64',
             'noReplaceLinksOnDomainsString'             => 'Ссылки с этими доменами не будут подменяться',
+            'noReplaceLinksOnDomains'                   => 'Ссылки с этими доменами не будут подменяться',
         ]);
     }
+
+    /**
+     * @return array
+     */
+    public function getNoReplaceLinksOnDomains()
+    {
+        if ($this->noReplaceLinksOnDomainsString)
+        {
+            return (array) explode(",", $this->noReplaceLinksOnDomainsString);
+        }
+
+        return [];
+    }
+
+
 }

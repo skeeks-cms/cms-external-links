@@ -6,7 +6,7 @@
  * @date 10.02.2016
  */
 namespace skeeks\cms\externalLinks;
-use skeeks\cms\assetsAuto\CmsSettingsExternalLinksComponent;
+use skeeks\cms\externalLinks\CmsSettingsExternalLinksComponent;
 use skeeks\yii2\externalLinks\ExternalLinksComponent;
 use yii\web\Application;
 

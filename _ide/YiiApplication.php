@@ -9,7 +9,7 @@
  */
 
 namespace yii\web;
-use skeeks\cms\assetsAuto\CmsSettingsExternalLinksComponent;
+use skeeks\cms\externalLinks\CmsSettingsExternalLinksComponent;
 use skeeks\cms\externalLinks\ExternalLinksComponent;
 
 /**
