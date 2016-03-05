@@ -6,15 +6,11 @@
  * @date 27.03.2015
  */
 use yii\helpers\Html;
-use skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab as ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model \skeeks\cms\models\WidgetConfig */
 
 ?>
-<?php $form = ActiveForm::begin(); ?>
-
-
 <?= $form->fieldSet('Основное'); ?>
     <?= $form->field($model, 'enabled')->radioList(\Yii::$app->formatter->booleanFormat)->hint('Эта опция, отключает и включает работу всего компонента. Отключив ее все другие настройки не будут учитываться.'); ?>
 <?= $form->fieldSetEnd(); ?>
@@ -26,8 +22,4 @@ use skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab as ActiveForm;
         'rows' => 5
     ])->hint('Список доменных имен через запятую.'); ?>
 <?= $form->fieldSetEnd(); ?>
-
-<?= $form->buttonsCreateOrUpdate($model); ?>
-<?php ActiveForm::end(); ?>
-
 

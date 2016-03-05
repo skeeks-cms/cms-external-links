@@ -8,6 +8,7 @@
 namespace skeeks\cms\externalLinks;
 
 use yii\helpers\ArrayHelper;
+use yii\widgets\ActiveForm;
 
 /**
  * Class CmsSettingsExternalLinksComponent
@@ -81,6 +82,15 @@ class CmsSettingsExternalLinksComponent extends \skeeks\cms\base\Component
             'noReplaceLinksOnDomains'                   => 'Ссылки с этими доменами не будут подменяться',
         ]);
     }
+
+    public function renderConfigForm(ActiveForm $form)
+    {
+        echo \Yii::$app->view->renderFile(__DIR__ . '/forms/_settings.php', [
+            'form'  => $form,
+            'model' => $this
+        ], $this);
+    }
+
 
     /**
      * @return array
