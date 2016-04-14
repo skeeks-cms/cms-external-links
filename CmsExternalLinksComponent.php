@@ -46,7 +46,7 @@ class CmsExternalLinksComponent extends ExternalLinksComponent
     {
         $component = $e->sender;
 
-        if (\Yii::$app->cms->moduleAdmin->requestIsAdmin())
+        if (\Yii::$app->admin->requestIsAdmin)
         {
             $component->enabled = false;
         }
