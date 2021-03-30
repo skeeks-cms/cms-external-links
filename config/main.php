@@ -6,40 +6,35 @@
  * @date 11.02.2016
  */
 return
-[
-    'bootstrap'    => ['externalLinks'],
-
-    'components' =>
     [
-        'urlManager' =>
-        [
-            'rules' =>
-            [
-                '~skeeks-redirect'                        => '/externallinks/redirect/redirect',
-            ]
-        ],
+        'bootstrap' => ['externalLinks'],
 
-        'externalLinks' =>
-        [
-            'class' => 'skeeks\cms\externalLinks\CmsExternalLinksComponent',
+        'components' => [
+            'urlManager' => [
+                'rules' => [
+                    '~sx-redirect' => '/externallinks/redirect/redirect',
+                ],
+            ],
 
-            'noReplaceLinksOnDomains'           => [
-                'skeeks.com',
-                'cms.skeeks.com',
+            'externalLinks' => [
+                'class' => 'skeeks\cms\externalLinks\CmsExternalLinksComponent',
+
+                'noReplaceLinksOnDomains' => [
+                    'skeeks.com',
+                    'cms.skeeks.com',
+                ],
+            ],
+
+            'cmsSettingsExternalLinks' => [
+                'class' => 'skeeks\cms\externalLinks\CmsSettingsExternalLinksComponent',
             ],
         ],
 
-        'cmsSettingsExternalLinks' =>
-        [
-            'class' => 'skeeks\cms\externalLinks\CmsSettingsExternalLinksComponent',
-        ],
-    ],
-
-    'modules' =>
-    [
-        'externallinks' =>
-        [
-            'class' => 'skeeks\yii2\externalLinks\ExternalLinksModule',
-        ],
-    ]
-];
+        'modules' =>
+            [
+                'externallinks' =>
+                    [
+                        'class' => 'skeeks\yii2\externalLinks\ExternalLinksModule',
+                    ],
+            ],
+    ];
