@@ -7,6 +7,8 @@
  */
 namespace skeeks\cms\externalLinks;
 
+use skeeks\yii2\form\fields\BoolField;
+use skeeks\yii2\form\fields\TextareaField;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 
@@ -83,13 +85,7 @@ class CmsSettingsExternalLinksComponent extends \skeeks\cms\base\Component
         ]);
     }
 
-    public function renderConfigForm(ActiveForm $form)
-    {
-        echo \Yii::$app->view->renderFile(__DIR__ . '/forms/_settings.php', [
-            'form'  => $form,
-            'model' => $this
-        ], $this);
-    }
+
 
 
     /**
@@ -105,5 +101,22 @@ class CmsSettingsExternalLinksComponent extends \skeeks\cms\base\Component
         return [];
     }
 
+    public function getConfigFormFields()
+    {
+        return [
+            'enabled' => [
+                'class' => BoolField::class
+            ],
+            'noReplaceLocalDomain' => [
+                'class' => BoolField::class
+            ],
+            'enabledB64Encode' => [
+                'class' => BoolField::class
+            ],
+            'noReplaceLinksOnDomainsString' => [
+                'class' => TextareaField::class
+            ],
+        ];
+    }
 
 }
