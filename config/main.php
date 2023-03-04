@@ -12,7 +12,7 @@ return
         'components' => [
             'urlManager' => [
                 'rules' => [
-                    '~sx-redirect' => '/externallinks/redirect/redirect',
+                    '~redirect' => '/externallinks/redirect/redirect',
                 ],
             ],
 
