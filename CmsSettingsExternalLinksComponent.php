@@ -7,6 +7,7 @@
  */
 namespace skeeks\cms\externalLinks;
 
+use skeeks\cms\assets\CmsAsset;
 use skeeks\yii2\form\fields\BoolField;
 use skeeks\yii2\form\fields\TextareaField;
 use yii\helpers\ArrayHelper;
@@ -47,6 +48,10 @@ class CmsSettingsExternalLinksComponent extends \skeeks\cms\base\Component
     {
         return array_merge(parent::descriptorConfig(), [
             'name'          => 'Преобразование внешних ссылок',
+            'image'         => [
+                CmsAsset::class,
+                'images/icons/admin-menu/links.svg'
+            ],
         ]);
     }
 
